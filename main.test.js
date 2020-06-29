@@ -1,28 +1,19 @@
 const {
-  crazyCase,
-  exclaim,
-  ciEmailify,
   reverse,
-  crazyCase2ReturnOfCrazyCase,
-  titleCase,
+  exclaim,
+  repeatIt,
   onlyVowels,
-  crazyCase3SonOfCrazyCase,
+  ciEmailify,
+  crazyCase,
+  titleCase,
+  camelCase,
+  crazyCase2ReturnOfCrazyCase,
 } = require('./main.js')
 
-describe('crazyCase', () => {
-  it(`returns a string with every other letter uppercased`, () => {
-    expect(crazyCase('hello')).toBe('hElLo')
-    expect(crazyCase('you')).toBe('yOu')
-  })
-  
-  it(`counts spaces as characters`, () => {
-    expect(crazyCase('multiple words here')).toBe('mUlTiPlE WoRdS HeRe')
-    expect(crazyCase('crazy stuff')).toBe('cRaZy sTuFf')
-  })
-  
-  it(`correctly lowercases parts of an uppercased string`, () => {
-    expect(crazyCase('YELLING')).toBe('yElLiNg')
-    expect(crazyCase('PERPETUALLY')).toBe('pErPeTuAlLy')
+describe('reverse', () => {
+  it(`reverses the string given`, () => {
+    expect(reverse('colin')).toBe('niloc')
+    expect(reverse('mesuara')).toBe('arausem')
   })
 })
 
@@ -38,61 +29,12 @@ describe('exclaim', () => {
   })
 })
 
-describe('ciEmailify', () => {
-  it(`creates an email from a two-part name`, () => {
-    expect(ciEmailify('colin jaffe')).toBe('colin.jaffe@codeimmersives.com')
-    expect(ciEmailify('mesuara kaleziq')).toBe('mesuara.kaleziq@codeimmersives.com')
+describe('repeatIt', () => {
+  it(`returns the given string repeated twice`, () => {
+    expect(repeatIt('beetlejuice', 3)).toBe('beetlejuicebeetlejuicebeetlejuice');
+    expect(repeatIt('oh hi!', 8)).toBe('oh hi!oh hi!oh hi!oh hi!oh hi!oh hi!oh hi!oh hi!');
   })
-  
-  it(`handles uppercased names`, () => {
-    expect(ciEmailify('Colin jaffe')).toBe('colin.jaffe@codeimmersives.com')
-    expect(ciEmailify('mesuara Kaleziq')).toBe('mesuara.kaleziq@codeimmersives.com')
-    expect(ciEmailify('Anthony DeRosa')).toBe('anthony.derosa@codeimmersives.com')
-  })
-})
-
-describe('reverse', () => {
-  it(`reverses the string given`, () => {
-    expect(reverse('colin')).toBe('niloc')
-    expect(reverse('mesuara')).toBe('arausem')
-  })
-})
-
-describe('crazyCase2ReturnOfCrazyCase', () => {
-  it(`returns a string with every other letter uppercased`, () => {
-    expect(crazyCase2ReturnOfCrazyCase('hello')).toBe('hElLo')
-    expect(crazyCase2ReturnOfCrazyCase('you')).toBe('yOu')
-  })
-  
-  it(`does NOT count spaces as characters`, () => {
-    expect(crazyCase2ReturnOfCrazyCase('multiple words here')).toBe('mUlTiPlE wOrDs HeRe')
-    expect(crazyCase2ReturnOfCrazyCase('crazy stuff')).toBe('cRaZy StUfF')
-  })
-  
-  it(`correctly lowercases parts of an uppercased string`, () => {
-    expect(crazyCase2ReturnOfCrazyCase('YELLING')).toBe('yElLiNg')
-    expect(crazyCase2ReturnOfCrazyCase('PERPETUALLY')).toBe('pErPeTuAlLy')
-  })
-})
-
-
-describe('titleCase', () => {
-  it(`returns a transformed version of the given string where every word starts with a capital letter`, () =>{
-    expect(titleCase('The matrix')).toBe('The Matrix');
-    expect(titleCase('The matrix reloaded')).toBe('The Matrix Reloaded');
-  })
-  
-  it(`handles the first word of a title`, () => {
-    expect(titleCase('speed')).toBe('Speed');
-    expect(titleCase('return of the king')).toBe('Return Of The King')
-  })
-
-  it(`lowercases any letter that is not the first letter of a word`, () => {
-    expect(titleCase('sPeEd')).toBe('Speed');
-    expect(titleCase('cOde immerSives')).toBe('Code Immersives');
-  })
-})
-
+});
 
 describe('onlyVowels', () => {
   it(`returns only the vowels from a word`, () => {
@@ -111,36 +53,83 @@ describe('onlyVowels', () => {
   })
 })
 
-
-describe('crazyCase3SonOfCrazyCase', () => {
-  it(`returns a string with every other letter uppercased`, () => {
-    expect(crazyCase3SonOfCrazyCase('hello')).toBe('hElLo')
-    expect(crazyCase3SonOfCrazyCase('you')).toBe('yOu')
+describe('ciEmailify', () => {
+  it(`creates an email from a two-part name`, () => {
+    expect(ciEmailify('colin jaffe')).toBe('colin.jaffe@codeimmersives.com')
+    expect(ciEmailify('mesuara kaleziq')).toBe('mesuara.kaleziq@codeimmersives.com')
   })
   
-  it(`does NOT count spaces as characters for the purposes of crazifying`, () => {
-    expect(crazyCase3SonOfCrazyCase('multiple words here')).toBe('mUlTiPlE wOrDs HeRe')
-    expect(crazyCase3SonOfCrazyCase('crazy stuff')).toBe('cRaZy StUfF')
+  it(`handles uppercased names`, () => {
+    expect(ciEmailify('Colin jaffe')).toBe('colin.jaffe@codeimmersives.com')
+    expect(ciEmailify('mesuara Kaleziq')).toBe('mesuara.kaleziq@codeimmersives.com')
+    expect(ciEmailify('Anthony DeRosa')).toBe('anthony.derosa@codeimmersives.com')
+  })
+})
+
+describe('crazyCase', () => {
+  it(`returns a string with every other letter uppercased`, () => {
+    expect(crazyCase('hello')).toBe('hElLo')
+    expect(crazyCase('you')).toBe('yOu')
+  })
+  
+  it(`counts spaces as characters`, () => {
+    expect(crazyCase('multiple words here')).toBe('mUlTiPlE WoRdS HeRe')
+    expect(crazyCase('crazy stuff')).toBe('cRaZy sTuFf')
   })
   
   it(`correctly lowercases parts of an uppercased string`, () => {
-    expect(crazyCase3SonOfCrazyCase('YELLING')).toBe('yElLiNg')
-    expect(crazyCase3SonOfCrazyCase('PERPETUALLY')).toBe('pErPeTuAlLy')
+    expect(crazyCase('YELLING')).toBe('yElLiNg')
+    expect(crazyCase('PERPETUALLY')).toBe('pErPeTuAlLy')
+  })
+})
+
+describe('titleCase', () => {
+  it(`returns a transformed version of the given string where every word starts with a capital letter`, () =>{
+    expect(titleCase('The matrix')).toBe('The Matrix');
+    expect(titleCase('The matrix reloaded')).toBe('The Matrix Reloaded');
   })
   
-  it(`does NOT count punctuation as characters for the purposes of crazifying`, () => {
-    expect(crazyCase3SonOfCrazyCase('hey, you')).toBe('hEy, YoU')
-    expect(crazyCase3SonOfCrazyCase('hello! you look...okay, I guess.')).toBe('hElLo! YoU lOoK...oKaY, i GuEsS.')
+  it(`handles the first word of a title`, () => {
+    expect(titleCase('speed')).toBe('Speed');
+    expect(titleCase('return of the king')).toBe('Return Of The King')
+  })
+
+  it(`lowercases any letter that is not the first letter of a word`, () => {
+    expect(titleCase('sPeEd')).toBe('Speed');
+    expect(titleCase('cOde immerSives')).toBe('Code Immersives');
+  })
+})
+
+describe('camelCase', () => {
+  it(`removes spaces from the given string`, () => {
+    expect(camelCase('oh Hello')).toBe('ohHello');
+    expect(camelCase('whats Up Dog')).toBe('whatsUpDog');
+  })
+
+  it(`upper cases the first letters of non-first words`, () => {
+    expect(camelCase('well yeah of course')).toBe('wellYeahOfCourse');
+    expect(camelCase('boy howdy')).toBe('boyHowdy');
+  })
+
+  it(`lower cases the first letter of the first word`, () => {
+    expect(camelCase('Well yeah of course')).toBe('wellYeahOfCourse');
+    expect(camelCase('Boy howdy')).toBe('boyHowdy');
+  })
+})
+
+describe('crazyCase2ReturnOfCrazyCase', () => {
+  it(`returns a string with every other letter uppercased`, () => {
+    expect(crazyCase2ReturnOfCrazyCase('hello')).toBe('hElLo')
+    expect(crazyCase2ReturnOfCrazyCase('you')).toBe('yOu')
   })
   
-  it(`does NOT count numbers as characters for the purposes of crazifying`, () => {
-    expect(crazyCase3SonOfCrazyCase('I am 9 years old.')).toBe('i Am 9 YeArS oLd.')
-    expect(crazyCase3SonOfCrazyCase('Gimme 5 bucks.')).toBe('gImMe 5 BuCkS.')
-    expect(crazyCase3SonOfCrazyCase('Johnny5 is alive.')).toBe('jOhNnY5 iS aLiVe.')
+  it(`does NOT count spaces as characters`, () => {
+    expect(crazyCase2ReturnOfCrazyCase('multiple words here')).toBe('mUlTiPlE wOrDs HeRe')
+    expect(crazyCase2ReturnOfCrazyCase('crazy stuff')).toBe('cRaZy StUfF')
   })
   
-  it(`does NOT count symbols as characters`, () => {
-    expect(crazyCase3SonOfCrazyCase('well, @#($ you')).toBe('wElL, @#($ yOu')
-    expect(crazyCase3SonOfCrazyCase('Gimme $5 now.')).toBe('gImMe $5 NoW.')
+  it(`correctly lowercases parts of an uppercased string`, () => {
+    expect(crazyCase2ReturnOfCrazyCase('YELLING')).toBe('yElLiNg')
+    expect(crazyCase2ReturnOfCrazyCase('PERPETUALLY')).toBe('pErPeTuAlLy')
   })
 })

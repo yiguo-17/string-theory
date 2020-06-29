@@ -1,35 +1,49 @@
-function crazyCase() {
+function camelCase(str) {
+
 }
 
-function ciEmailify() {
+function repeatIt(str, max) {
+
 }
 
-function exclaim() {
+
+function crazyCase(str) {
+
 }
 
-function reverse() {
+function ciEmailify(name) {
+
 }
 
-function crazyCase2ReturnOfCrazyCase() {
+function exclaim(sentence) {
+
 }
 
-function titleCase() {
+function reverse(str) {
+
 }
 
-function onlyVowels() {
+function crazyCase2ReturnOfCrazyCase(str) {
+
 }
 
-function crazyCase3SonOfCrazyCase() {
+function titleCase(str) {
+
+}
+
+function onlyVowels(str) {
+
 }
 
 
 module.exports = {
-  crazyCase,
-  exclaim,
-  ciEmailify,
   reverse,
-  crazyCase2ReturnOfCrazyCase,
-  titleCase,
+  exclaim,
+  repeatIt,
   onlyVowels,
-  crazyCase3SonOfCrazyCase
+  ciEmailify,
+  crazyCase,
+  titleCase,
+  camelCase,
+  crazyCase2ReturnOfCrazyCase,
 }
