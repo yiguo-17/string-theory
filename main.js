@@ -1,47 +1,78 @@
-function camelCase(str) {
+/******************
+ * YOUR CODE HERE *
+ ******************/
 
+
+
+
+
+
+
+
+
+ /********************************************
+ * CODE DOWN HERE IS FOR INTERNAL USE ONLY. *
+ *           PLEASE DON'T TOUCH!            *
+ ********************************************/
+
+if (typeof indexedChars === 'undefined') {
+  indexedChars = undefined;
 }
 
-function repeatIt(str, max) {
-
+if (typeof exclaim === 'undefined') {
+  exclaim = undefined;
 }
 
-
-function crazyCase(str) {
-
+if (typeof repeatIt === 'undefined') {
+  repeatIt = undefined;
 }
 
-function ciEmailify(name) {
-
+if (typeof truncate === 'undefined') {
+  truncate = undefined;
 }
 
-function exclaim(sentence) {
-
+if (typeof ciEmailify === 'undefined') {
+  ciEmailify = undefined;
 }
 
-function reverse(str) {
-
+if (typeof reverse === 'undefined') {
+  reverse = undefined;
 }
 
-function crazyCase2ReturnOfCrazyCase(str) {
-
+if (typeof onlyVowels === 'undefined') {
+  onlyVowels = undefined;
 }
 
-function titleCase(str) {
-
+if (typeof numberedChars === 'undefined') {
+  numberedChars = undefined;
 }
 
-function onlyVowels(str) {
+if (typeof crazyCase === 'undefined') {
+  crazyCase = undefined;
+}
 
+if (typeof titleCase === 'undefined') {
+  titleCase = undefined;
+}
+
+if (typeof camelCase === 'undefined') {
+  camelCase = undefined;
+}
+
+if (typeof crazyCase2ReturnOfCrazyCase === 'undefined') {
+  crazyCase2ReturnOfCrazyCase = undefined;
 }
 
 
 module.exports = {
-  reverse,
+  indexedChars,
   exclaim,
   repeatIt,
-  onlyVowels,
+  truncate,
   ciEmailify,
+  reverse,
+  onlyVowels,
+  numberedChars,
   crazyCase,
   titleCase,
   camelCase,

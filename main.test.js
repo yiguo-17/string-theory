@@ -1,19 +1,38 @@
 const {
-  reverse,
+  indexedChars,
   exclaim,
   repeatIt,
-  onlyVowels,
+  truncate,
   ciEmailify,
+  reverse,
+  onlyVowels,
+  numberedChars,
   crazyCase,
   titleCase,
   camelCase,
   crazyCase2ReturnOfCrazyCase,
 } = require('./main.js')
 
-describe('reverse', () => {
-  it(`reverses the string given`, () => {
-    expect(reverse('colin')).toBe('niloc')
-    expect(reverse('mesuara')).toBe('arausem')
+
+describe('indexedChars', () => {
+  it(`adds a 0 before a one-character string`, () => {
+    const char1 = 'a'
+    const char2 = 'z'
+    const indexed1 = '0a'
+    const indexed2 = '0z'
+
+    expect(indexedChars(char1)).toBe(indexed1);
+    expect(indexedChars(char2)).toBe(indexed2);
+  })
+
+  it(`adds the index of each character before that character in the given string`, () => {
+    const str1 = 'hello';
+    const indexed1 = '0h1e2l3l4o';
+    const str2 = 'bye';
+    const indexed2 = '0b1y2e';
+
+    expect(indexedChars(str1)).toBe(indexed1);
+    expect(indexedChars(str2)).toBe(indexed2);
   })
 })
 
@@ -30,11 +49,49 @@ describe('exclaim', () => {
 })
 
 describe('repeatIt', () => {
-  it(`returns the given string repeated twice`, () => {
+  it(`returns the given string repeated the number of times as the second parameter`, () => {
     expect(repeatIt('beetlejuice', 3)).toBe('beetlejuicebeetlejuicebeetlejuice');
     expect(repeatIt('oh hi!', 8)).toBe('oh hi!oh hi!oh hi!oh hi!oh hi!oh hi!oh hi!oh hi!');
   })
 });
+
+describe('truncate', () => {
+  it(`shortens a long string to 15 characters plus an elipsis (...)`, () => {
+    const longString1 = 'The fault, dear Brutus, is not in our stars, but in ourselves.'
+    const truncated1 = 'The fault, dear...'
+    const longString2 = "Well, that's just, like, your opinion man." 
+    const truncated2 = "Well, that's ju..."
+    expect(truncate(longString1)).toBe(truncated1);
+    expect(truncate(longString2)).toBe(truncated2);
+  })
+
+  it(`does not truncate a string shorter than 18 characters`, () => {
+    const shortString1 = "I'm 17 characters"
+    const shortString2 = "Whoa."
+    expect(truncate(shortString1)).toBe(shortString1);
+    expect(truncate(shortString2)).toBe(shortString2);
+  })
+})
+
+describe('ciEmailify', () => {
+  it(`creates an email from a two-part name`, () => {
+    expect(ciEmailify('colin jaffe')).toBe('colin.jaffe@codeimmersives.com')
+    expect(ciEmailify('mesuara kaleziq')).toBe('mesuara.kaleziq@codeimmersives.com')
+  })
+  
+  it(`handles uppercased names`, () => {
+    expect(ciEmailify('Colin jaffe')).toBe('colin.jaffe@codeimmersives.com')
+    expect(ciEmailify('mesuara Kaleziq')).toBe('mesuara.kaleziq@codeimmersives.com')
+    expect(ciEmailify('Anthony DeRosa')).toBe('anthony.derosa@codeimmersives.com')
+  })
+})
+
+describe('reverse', () => {
+  it(`reverses the string given`, () => {
+    expect(reverse('colin')).toBe('niloc')
+    expect(reverse('mesuara')).toBe('arausem')
+  })
+})
 
 describe('onlyVowels', () => {
   it(`returns only the vowels from a word`, () => {
@@ -53,16 +110,25 @@ describe('onlyVowels', () => {
   })
 })
 
-describe('ciEmailify', () => {
-  it(`creates an email from a two-part name`, () => {
-    expect(ciEmailify('colin jaffe')).toBe('colin.jaffe@codeimmersives.com')
-    expect(ciEmailify('mesuara kaleziq')).toBe('mesuara.kaleziq@codeimmersives.com')
+describe('numberedChars', () => {
+  it(`adds a 1 in parentheses before a one-character string`, () => {
+    const char1 = 'a'
+    const char2 = 'z'
+    const numbered1 = '(1)a'
+    const numbered2 = '(1)z'
+
+    expect(numberedChars(char1)).toBe(numbered1);
+    expect(numberedChars(char2)).toBe(numbered2);
   })
-  
-  it(`handles uppercased names`, () => {
-    expect(ciEmailify('Colin jaffe')).toBe('colin.jaffe@codeimmersives.com')
-    expect(ciEmailify('mesuara Kaleziq')).toBe('mesuara.kaleziq@codeimmersives.com')
-    expect(ciEmailify('Anthony DeRosa')).toBe('anthony.derosa@codeimmersives.com')
+
+  it(`adds the number of each character before that character`, () => {
+    const str1 = 'hello';
+    const numbered1 = '(1)h(2)e(3)l(4)l(5)o';
+    const str2 = 'bye';
+    const numbered2 = '(1)b(2)y(3)e';
+
+    expect(numberedChars(str1)).toBe(numbered1);
+    expect(numberedChars(str2)).toBe(numbered2);
   })
 })
 
