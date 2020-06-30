@@ -4,7 +4,7 @@
 const indexedChars = function(str){
   let result = '';
   for(i= 0; i<str.length; i++){
-    result +=(i+1)+str[i];
+    result +=i +str[i];
   }
   return result
 
