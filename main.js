@@ -47,7 +47,7 @@ const ciEmailify = function(str){
 const reverse = function(str){
   let result = '';
   for(i=0; i<str.length;i++){
-    result+= str[str.length-1];
+    result+= str[str.length-1-i];
   }
   return result;
 }
