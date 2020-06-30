@@ -103,15 +103,11 @@ const camelCase = function(str){
 }
 const crazyCase2ReturnOfCrazyCase = function(str){
   let result ='';
-  const ucs = 'ABCDEFGHIJKLMNOPQRESTUVWXYZ';
-  const lcs = ucs.toLowerCase();
-  result+= str[0].toLowerCase();
-  for(i=1;i,str.length;i++){
-    if(ucs.includes(str[i-1])){result+= str[i].toLowerCase()}
-    if(lcs.includes(str[i-1])){result+= str[i].toUpperCase()}
-    if(str[i-1]===' ' &&ucs.includes(str[i-2])){result+= str[i].toLowerCase()}
-    if(str[i-1]===' ' &&lcs.includes(str[i-2])){result+= str[i].toUpperCase()}
-    if(str[i]===' '){result+=str[i]}
+  let ii=0;//set counter does not count space.
+  for(i=0;i<str.length;i++){
+    if (str[i]===' '){result+=str[i]}
+    else if(ii%2===0){result+=str[i].toLowerCase();ii++}
+    else {result+=str[i].toUpperCase();ii++}
   }
   return result
 
