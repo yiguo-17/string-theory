@@ -38,9 +38,8 @@ const ciEmailify = function(str){
   let result = '';
   const name = str.toLowerCase();
   for(i=0; i<name.length;i++){
-    if(name[i]===' '){
-      result+= '.';
-    }else{result+= name[i];}
+    if(name[i]===' '){result+= '.';} //turn space between first name and last name to "." 
+    else{result+= name[i];}
   }
   result+= '@codeimmersives.com'
   return result
@@ -85,7 +84,7 @@ const titleCase = function(str){
   let result = '';
   result+=str[0].toUpperCase();
   for(i=1; i<str.length;i++){
-    if(str[i-1]===' '){result+= str[i].toUpperCase()}
+    if(str[i-1]===' '){result+= str[i].toUpperCase()}//find character after space and convert to capital letter.
     else{result+= str[i].toLowerCase()}
   }
   return result;
@@ -94,19 +93,18 @@ const camelCase = function(str){
   let result = '';
   result+=str[0].toLowerCase();
   for(i=1; i<str.length;i++){
-    if(str[i-1]===' '){result+= str[i].toUpperCase()}
+    if(str[i-1]===' '){result+= str[i].toUpperCase()}//find character after space and convert to capital letter.
     else{result+= str[i].toLowerCase()}
   }
   let camelStr='';
   for(i=0;i<result.length;i++){
-    if(result[i]===' '){camelStr = camelStr;}
-    else{camelStr+= result[i];}
+    if(result[i]!==' '){camelStr+= result[i];}//string only building when character is not space.
   }
   return camelStr;
 }
 const crazyCase2ReturnOfCrazyCase = function(str){
   let result ='';
-  let ii=0;//set counter does not count space.
+  let ii=0;//set counter count non-space character.
   for(i=0;i<str.length;i++){
     if (str[i]===' '){result+=str[i]}
     else if(ii%2===0){result+=str[i].toLowerCase();ii++}
