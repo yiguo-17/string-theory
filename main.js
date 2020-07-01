@@ -7,6 +7,7 @@ const indexedChars = function(str){
     result +=i +str[i];
   }
   return result
+}
 
 const exclaim = function(str){
   let result = '';
@@ -26,6 +27,7 @@ const repeatIt = function(str, num){
 }
 const truncate = function(str){
   let result = '';
+  if(str.length<18){return str;}
   for (i=0; i<15; i++){
     result+= str[i];
   }
@@ -51,12 +53,13 @@ const reverse = function(str){
   }
   return result;
 }
-const voewl = 'AEIOU';
+
 const onlyVowels = function(str){
   const ucs = str.toUpperCase();
   let result = '';
   for(i=0;i<str.length;i++){
-    if(voewl.includes(usc[i])){
+    if(ucs[i]==='A'||ucs[i]==='E'||ucs[i]==='I'||ucs[i]==='O'||
+    ucs[i]==='U'){
       result+= str[i];
     }
   }
